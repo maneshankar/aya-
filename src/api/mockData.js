@@ -1,411 +1,314 @@
 export const CATEGORIES = [
-  { id: 'all', label: 'All Masterclasses' },
-  { id: 'design-systems', label: 'Design Systems' },
-  { id: 'ai-engineering', label: 'AI & Agents' },
-  { id: 'web-systems', label: 'Web Architecture' },
-  { id: 'product-strategy', label: 'Product Strategy' }
+  { id: 'all', label: 'All Disciplines' },
+  { id: 'industrial-design', label: 'Industrial Design' },
+  { id: 'digital-arts', label: 'Digital Arts' },
+  { id: 'communication', label: 'Brand & Communication' },
+  { id: 'fine-arts', label: 'Tactile & Fine Arts' }
 ];
 
 export const STATS = [
   {
-    value: '1%',
-    label: 'Select Cohort Rate',
-    desc: 'Rigorous application review ensuring exceptional peer-to-peer discourse and network density.'
+    value: '89',
+    label: 'Interactive Courses',
+    desc: 'Multi-camera studio courses led by industry storytellers and independent authors.'
   },
   {
-    value: '30+',
-    label: 'Design & Code Systems',
-    desc: 'Production repositories, design tokens, and runnable infrastructure templates shipped.'
+    value: '500+',
+    label: 'Hours of Video',
+    desc: 'Deep-dive assignment walkthroughs, uncut studio sessions, and technique breakdowns.'
   },
   {
-    value: '100%',
-    label: 'Industry Practitioner Led',
-    desc: 'Taught exclusively by active staff engineers, principal designers, and startup founders.'
-  },
-  {
-    value: '8.4k+',
-    label: 'Alumni Across Top Tech',
-    desc: 'Alumni building at OpenAI, Stripe, Linear, Vercel, Apple, and premier studio practices.'
+    value: '4.9 ★',
+    label: 'Platform Rating',
+    desc: 'Over 8,400 verified student reviews across all creative and technical tracks.'
   }
 ];
 
-export const TRUST_PARTNERS = [
-  { name: 'RED BULL RACING', metric: 'Telemetry UX' },
-  { name: 'LINEAR APP', metric: 'Craft Standards' },
-  { name: 'XBOX GAMING', metric: 'Design Tokens' },
-  { name: 'HUBSPOT', metric: 'Scale Framework' },
-  { name: 'VERCEL LABS', metric: 'Next-Gen Edge' }
+export const TRUST_TICKERS = [
+  {
+    title: '1:1 feedback from mentors',
+    desc: 'Direct guidance on your actual project files and portfolio pieces.'
+  },
+  {
+    title: 'Cohort-based learning',
+    desc: 'Deep, active community discussing feedback and running critiques.'
+  },
+  {
+    title: 'Workshop-grade resources',
+    desc: 'Vector files, CAD models, reference assets, and custom Figma kits.'
+  }
 ];
 
-export const PILLARS = [
+export const WHATS_IN_THE_BOX = [
   {
-    number: '01 / RIGOROUS CRAFT',
-    title: 'Category-Defining Standards',
-    desc: 'Master the technical discipline behind award-winning digital experiences. From micro-interactions to resilient design systems.',
-    points: ['Design Token Pipelines & Fari-CI', 'Production-Ready Interaction Math', 'Accessibility & Micro-Interactions']
+    icon: 'compass',
+    title: 'Path to mastery',
+    points: [
+      'Multi-camera studio video capture',
+      'Downloadable project files & assets',
+      'Step-by-step written guides & specs',
+      'Regular updates from instructors'
+    ]
   },
   {
-    number: '02 / ARCHITECTURE FIRST',
-    title: 'Modern Web Engineering',
-    desc: 'Build high-velocity, robust web applications with modern patterns that withstand massive scale and evolving client needs.',
-    points: ['Server-Driven UI Architecture', 'Sub-50ms Latency Performance', 'Zero-State Resilience & Caching']
+    icon: 'layers',
+    title: 'Assignment & grading',
+    points: [
+      'Real-world design briefs & constraints',
+      'Assignment grading framework',
+      '1:1 instructor feedback recordings',
+      'Public student showcase & critique gallery'
+    ]
   },
   {
-    number: '03 / NEXT-GEN HORIZONS',
-    title: 'Autonomous AI Integration',
-    desc: 'Harness LLMs, tool-calling agents, and real-time inference directly within your frontend and backend architectures.',
-    points: ['Multi-Agent Tool Orchestration', 'Local & Cloud Embedding RAG', 'Streaming UX & Optimistic UI']
+    icon: 'box',
+    title: 'The physical reality',
+    points: [
+      'Home delivery of course materials',
+      'Subscription-inclusive physical product boxes',
+      'Hardcover course books & companion guides',
+      'Curated tools directly used in videos'
+    ]
   }
 ];
 
 export const COURSES = [
   {
     id: 'course-1',
-    slug: 'next-gen-design-systems',
-    title: 'Next-Gen Design Architecture: Scalable UI Platforms & Token Pipelines',
-    tagline: 'Engineer category-defining identities, tactile digital product systems, and resilient token pipelines.',
-    category: 'Design Systems',
-    categoryId: 'design-systems',
-    level: 'Advanced',
-    duration: '6 Weeks • 18 Hours',
-    totalLessons: 24,
-    studentsCount: 1420,
-    rating: 4.96,
-    reviewsCount: 312,
-    price: 349,
-    originalPrice: 499,
-    badge: 'Flagship Masterclass',
-    featured: true,
-    thumbnailColor: '#1A1A1A',
-    gradient: 'linear-gradient(135deg, #1f1d1c 0%, #302624 100%)',
+    slug: 'foundations-of-industrial-design',
+    title: 'Foundations of Industrial Design',
+    tagline: 'Form, function, drafting techniques, and product manufacturing fundamentals.',
+    category: 'Industrial Design',
+    categoryId: 'industrial-design',
+    badge: 'INDUSTRIAL DESIGN',
+    modulesCount: '4 modules',
+    level: 'Beginner to Intermediate',
+    duration: '4 Weeks • 12 Hours',
+    totalLessons: 18,
+    studentsCount: 3420,
+    rating: 4.97,
+    reviewsCount: 420,
+    price: 0,
+    originalPrice: 199,
+    isFree: true,
+    coverImage: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80',
+    fallbackSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="#1C1A17"><rect width="400" height="250" fill="#1C1A17"/><path d="M60 190 L200 60 L340 190 Z" stroke="#D94E34" stroke-width="2" fill="none" stroke-dasharray="4 4"/><circle cx="200" cy="130" r="50" stroke="#FFFFFF" stroke-width="2" fill="none"/><line x1="60" y1="190" x2="340" y2="190" stroke="#E7E3DA" stroke-width="1.5"/><text x="200" y="225" font-family="monospace" font-size="11" fill="#D94E34" text-anchor="middle" letter-spacing="2">INDUSTRIAL SCHEMATICS</text></svg>`,
+    gradient: 'linear-gradient(135deg, #1C1A17 0%, #2E2822 100%)',
     instructor: {
-      name: 'Elena Rostova',
-      role: 'Former VP of Design Systems at Linear & Vercel',
+      name: 'Sam Roux',
+      role: 'Lead Industrial Designer at Studio Veloce',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
-      bio: 'Elena has led design infrastructure at world-class tech firms, pioneering Figma-to-code compiler toolchains and resilient token governance.'
+      bio: 'Sam has drafted iconic consumer electronics and tactile hardware devices for world-renowned design houses.'
     },
     highlights: [
-      'Comprehensive Design Token Pipeline from Figma Variables to CSS/JSON',
-      'Building headless, accessible, and themeable React component primitives',
-      'Automated visual regression testing with Playwright & CI pipelines',
-      'Multi-brand architecture supporting dark mode, high contrast, and density'
+      'Perspective sketching & rapid visual communication',
+      'Design for injection molding & CNC manufacturing',
+      'Tactile materials, finishes, and ergonomic tolerances',
+      'Full physical prototype development workflow'
     ],
     syllabus: [
       {
-        title: 'Week 1: Token Architecture & The Single Source of Truth',
-        lessons: [
-          'Design Token Taxonomies (Global, Semantic, Component-scoped)',
-          'Figma Variables to Style Dictionary Automation',
-          'Export Pipelines via GitHub Actions'
-        ]
+        title: 'Module 1: Visual Language & Orthographic Drawing',
+        lessons: ['Rapid Concept Sketching', 'Perspective Grids', 'Form Exploration']
       },
       {
-        title: 'Week 2: Headless Primitives & Accessible State Machines',
-        lessons: [
-          'Building with ARIA & Radix Primitives',
-          'Keyboard Navigation & Focus Trapping Algorithms',
-          'Compound Component Patterns & Context Optimization'
-        ]
+        title: 'Module 2: Materials, Textures & CMF',
+        lessons: ['Metals, Polymers & Composites', 'Surface Finishes', 'Material Selection']
       },
       {
-        title: 'Week 3: Micro-Animations & Fluid Layout Craft',
-        lessons: [
-          'Spring Physics vs Easing Curves in Modern UI',
-          'Container Queries and Fluid Typography Scales',
-          'GPU Acceleration and Layout Thrashing Prevention'
-        ]
+        title: 'Module 3: Prototyping to Production',
+        lessons: ['Clay & Foam Modeling', '3D CAD Translation', 'Manufacturing Handoff']
       },
       {
-        title: 'Week 4: Packaging, Versioning & Enterprise Adoption',
-        lessons: [
-          'Monorepo Setup with Turborepo & Changesets',
-          'Semantic Versioning & Deprecation Warnings in TypeScript',
-          'Documentation Portals with Interactive Playgrounds'
-        ]
+        title: 'Module 4: Final Capstone Project Brief',
+        lessons: ['Independent Hardware Brief', 'Peer Review', 'Instructor Grading']
       }
     ]
   },
   {
     id: 'course-2',
-    slug: 'autonomous-ai-engineering',
-    title: 'Autonomous AI Agents: Production-Grade LLM Systems & Tool Calling',
-    tagline: 'Architect robust multi-agent swarms, resilient tool execution pipelines, and deterministic evals.',
-    category: 'AI & Agents',
-    categoryId: 'ai-engineering',
-    level: 'Intermediate to Advanced',
-    duration: '8 Weeks • 26 Hours',
-    totalLessons: 32,
+    slug: 'photo-anatomy-for-photographers',
+    title: 'Photo Anatomy for Photographers',
+    tagline: 'Lighting, classical composition, sculpture study, and editorial visual narrative.',
+    category: 'Digital Arts',
+    categoryId: 'digital-arts',
+    badge: 'DIGITAL ARTS',
+    modulesCount: '6 modules',
+    level: 'All Levels',
+    duration: '6 Weeks • 18 Hours',
+    totalLessons: 24,
     studentsCount: 2890,
-    rating: 4.98,
-    reviewsCount: 540,
-    price: 429,
-    originalPrice: 599,
-    badge: 'Highest Rated',
-    featured: true,
-    thumbnailColor: '#0E1715',
-    gradient: 'linear-gradient(135deg, #101c18 0%, #1e332c 100%)',
+    rating: 4.95,
+    reviewsCount: 380,
+    price: 0,
+    originalPrice: 249,
+    isFree: true,
+    coverImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+    fallbackSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="#141A1C"><rect width="400" height="250" fill="#141A1C"/><circle cx="200" cy="115" r="65" stroke="#D94E34" stroke-width="1.5" fill="none"/><path d="M160 170 Q200 90 240 170" stroke="#FFFFFF" stroke-width="2" fill="none"/><line x1="100" y1="125" x2="300" y2="125" stroke="#E7E3DA" stroke-width="1" stroke-dasharray="3 3"/><text x="200" y="225" font-family="monospace" font-size="11" fill="#D94E34" text-anchor="middle" letter-spacing="2">CLASSICAL LIGHTING STUDY</text></svg>`,
+    gradient: 'linear-gradient(135deg, #141A1C 0%, #202D30 100%)',
     instructor: {
-      name: 'Marcus Vance, PhD',
-      role: 'AI Systems Architect & Ex-Google DeepMind Contributor',
+      name: 'Marcus Webb',
+      role: 'Editorial Director & Master of Light',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
-      bio: 'Marcus focuses on autonomous execution loops, stateful tool-calling frameworks, and high-throughput LLM pipelines for production workloads.'
+      bio: 'Marcus teaches lighting math, shadow sculpture, and storytelling through medium-format photography.'
     },
     highlights: [
-      'Self-correcting agent loops with structured JSON schemas',
-      'Hybrid RAG: Vector search + sparse BM25 + Cross-Encoder reranking',
-      'Local model fine-tuning with LoRA and quantized inference engines',
-      'Streaming UI integration with WebSockets and Server-Sent Events'
+      'Sculptural lighting techniques using chiaroscuro',
+      'Composition grids inspired by Renaissance masters',
+      'Color grading for archival and editorial prints',
+      'Working with live models and art director briefs'
     ],
     syllabus: [
       {
-        title: 'Week 1-2: Foundations of Agentic Cognitive Architectures',
-        lessons: [
-          'ReAct, Plan-and-Solve, and Reflection Patterns',
-          'Structured Tool Calling & OpenAPI Spec Validation',
-          'Managing Context Windows & Recursive Summarization'
-        ]
+        title: 'Module 1: Principles of Light & Shadow',
+        lessons: ['Inverse Square Law', 'Hard vs Soft Quality', 'Reflective Modifiers']
       },
       {
-        title: 'Week 3-4: Multi-Agent Orchestration & Memory',
-        lessons: [
-          'Hierarchical vs Peer-to-Peer Agent Graphs',
-          'State Persistence with Redis & Vector Stores',
-          'Human-in-the-Loop Interruption and Resume Handlers'
-        ]
+        title: 'Module 2: Sculptural Form & Subject Study',
+        lessons: ['Posing Geometry', 'Facial Plane Lighting', 'Negative Space']
       },
       {
-        title: 'Week 5-6: Evaluations, Guardrails & Production Observability',
-        lessons: [
-          'Building Deterministic CI Evals for Non-Deterministic Outputs',
-          'Semantic Caching to Slash Token Costs by 60%',
-          'Telemetry with OpenTelemetry & Tracing Swarms'
-        ]
+        title: 'Module 3: Color Grading & Final Presentation',
+        lessons: ['Tone Curves in Capture One', 'Print Sharpening', 'Exhibition Curation']
       }
     ]
   },
   {
     id: 'course-3',
-    slug: 'search-first-web-engineering',
-    title: 'Search-First Web Engineering: Ultra-High-Performance Frontends',
-    tagline: 'We build search-first digital systems to help category leaders lead their industries with sub-second speeds.',
-    category: 'Web Architecture',
-    categoryId: 'web-systems',
-    level: 'Advanced',
-    duration: '5 Weeks • 16 Hours',
-    totalLessons: 20,
-    studentsCount: 980,
-    rating: 4.92,
-    reviewsCount: 185,
-    price: 299,
-    originalPrice: 399,
-    badge: 'Popular',
-    featured: true,
-    thumbnailColor: '#17141E',
-    gradient: 'linear-gradient(135deg, #1b1627 0%, #2e214a 100%)',
+    slug: 'directorial-brand-identity',
+    title: 'Directorial Brand Identity',
+    tagline: 'Typography, cinematic art direction, and enduring visual communication systems.',
+    category: 'Brand & Communication',
+    categoryId: 'communication',
+    badge: 'COMMUNICATION',
+    modulesCount: '3 modules',
+    level: 'Intermediate to Advanced',
+    duration: '3 Weeks • 10 Hours',
+    totalLessons: 14,
+    studentsCount: 4120,
+    rating: 4.98,
+    reviewsCount: 512,
+    price: 0,
+    originalPrice: 179,
+    isFree: true,
+    coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    fallbackSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="#1A141A"><rect width="400" height="250" fill="#1A141A"/><path d="M80 180 Q200 40 320 180" stroke="#D94E34" stroke-width="2.5" fill="none"/><path d="M100 180 Q200 70 300 180" stroke="#FFFFFF" stroke-width="1.5" fill="none"/><text x="200" y="225" font-family="monospace" font-size="11" fill="#D94E34" text-anchor="middle" letter-spacing="2">TYPOGRAPHIC TOPOGRAPHY</text></svg>`,
+    gradient: 'linear-gradient(135deg, #1A141A 0%, #2B1D2B 100%)',
     instructor: {
-      name: 'Soraya Chen',
-      role: 'Principal Staff Engineer at FastTrack Systems',
+      name: 'Kate Sterling',
+      role: 'Creative Partner & Brand Architect',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-      bio: 'Soraya has architected websites serving over 500 million monthly visits with perfect 100 Lighthouse performance metrics across all devices.'
+      bio: 'Kate has shaped category-defining visual identities for luxury houses and independent publishing imprints.'
     },
     highlights: [
-      'Core Web Vitals masterclass: INP, LCP, CLS optimization',
-      'Edge rendering, ISR, and Stale-While-Revalidate caching tactics',
-      'Advanced semantic markup, Structured JSON-LD for rich snippets',
-      'Bundle auditing, tree-shaking, and zero-runtime CSS'
+      'Bespoke typography selection and micro-kerning craft',
+      'Spatial layout systems for print and digital surfaces',
+      'Writing compelling brand manifestos and visual styleguides',
+      'Client presentation choreography and feedback alignment'
     ],
     syllabus: [
       {
-        title: 'Week 1: The Modern Rendering Spectrum',
-        lessons: [
-          'SSR vs SSG vs ISR vs Islands Architecture',
-          'Streaming HTML with Selective Hydration',
-          'Optimizing the Critical Rendering Path'
-        ]
+        title: 'Module 1: The Directorial Mindset',
+        lessons: ['Point of View & Category Creation', 'Moodboarding with Tactile Materials', 'Visual Metaphor']
       },
       {
-        title: 'Week 2: Diagnostic Profiling & Chrome DevTools Deep Dive',
-        lessons: [
-          'Main Thread Blocking Analysis & Long Task Breaking',
-          'Memory Leaks and Garbage Collection in Single Page Apps',
-          'Network Waterfalls and HTTP/3 Prioritization'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'course-4',
-    slug: 'executive-product-strategy',
-    title: 'Executive Product Strategy: Category Creation & Market Domination',
-    tagline: 'Transform from a feature builder into a category-defining product executive with battle-tested frameworks.',
-    category: 'Product Strategy',
-    categoryId: 'product-strategy',
-    level: 'Executive / Lead',
-    duration: '4 Weeks • 14 Hours',
-    totalLessons: 18,
-    studentsCount: 1150,
-    rating: 4.95,
-    reviewsCount: 220,
-    price: 389,
-    originalPrice: 520,
-    badge: 'Executive Level',
-    featured: false,
-    thumbnailColor: '#201A15',
-    gradient: 'linear-gradient(135deg, #241910 0%, #3d2a19 100%)',
-    instructor: {
-      name: 'Alexander Sterling',
-      role: 'Managing Partner & Former Head of Product at Figma',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
-      bio: 'Alexander consults Fortune 100 leadership on competitive moats, pricing power, and narrative-driven product development.'
-    },
-    highlights: [
-      'The Category Design Playbook: Positioning that commands 3x pricing',
-      'Quantitative Unit Economics & Viral Expansion Loops',
-      'Running High-Consequence Executive Alignment Workshops',
-      'Metrics that Matter: North Star vs Counter-Metrics'
-    ],
-    syllabus: [
-      {
-        title: 'Week 1: Category Design & The Point of View (POV)',
-        lessons: [
-          'Differentiating vs Dominating: Why Better Never Wins',
-          'Framing the Problem Space and Naming the Monster',
-          'Drafting the Category Manifesto'
-        ]
+        title: 'Module 2: Typographic Systems & Grids',
+        lessons: ['Asymmetrical Editorial Grids', 'Hierarchy & Contrast', 'Motion in Type']
       },
       {
-        title: 'Week 2: Product-Led Flywheels & Expansion Velocity',
-        lessons: [
-          'Designing Frictionless Onboarding Paths',
-          'Viral Loops and Collaborative Multi-Player Dynamics',
-          'Tiering Features: Paywalls, Freemium & Enterprise Add-ons'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'course-5',
-    slug: 'category-defining-identity',
-    title: 'Category-Defining Identity: Art Direction, Typography & Motion',
-    tagline: 'Crafting bespoke identities, tactile design guidelines, and cohesive visual systems that outpace the market.',
-    category: 'Design Systems',
-    categoryId: 'design-systems',
-    level: 'Intermediate',
-    duration: '6 Weeks • 20 Hours',
-    totalLessons: 22,
-    studentsCount: 1780,
-    rating: 4.97,
-    reviewsCount: 390,
-    price: 329,
-    originalPrice: 450,
-    badge: 'High Craft',
-    featured: false,
-    thumbnailColor: '#1B1417',
-    gradient: 'linear-gradient(135deg, #21131a 0%, #3b1e2e 100%)',
-    instructor: {
-      name: 'Camille Duvall',
-      role: 'Creative Director at Studio Atelier Paris',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80',
-      bio: 'Camille has shaped brand identities for Hermès, Polestar, and emerging luxury tech brands across Europe.'
-    },
-    highlights: [
-      'Editorial typography pairings and custom type micro-adjustments',
-      'Editorial color theory & dynamic contrast ratios',
-      'Directing 3D assets, lighting, and tactile texture materials',
-      'Interactive brand guidelines and living spec portals'
-    ],
-    syllabus: [
-      {
-        title: 'Week 1: Type As Voice & Editorial Layout',
-        lessons: [
-          'History and Anatomy of High-Fashion & Editorial Fonts',
-          'Mathematical Proportions: The Golden Ratio & Asymmetry',
-          'Grid Breaking and Kinetic Typography'
-        ]
-      },
-      {
-        title: 'Week 2: Tactile Materials & Physical-Digital Convergence',
-        lessons: [
-          'Translating Physical Textures to Web Shaders & CSS',
-          'Skeuomorphic Micro-Touches in Modern Minimalist Design',
-          'Case Study: Creating a $100M Brand Identity in 14 Days'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'course-6',
-    slug: 'fullstack-design-engineering',
-    title: 'Full-Stack Design Engineering: Bridging Figma to React Server Components',
-    tagline: 'Seamlessly blend creative direction, responsive animation math, and full-stack React architecture.',
-    category: 'Web Architecture',
-    categoryId: 'web-systems',
-    level: 'All Levels',
-    duration: '7 Weeks • 22 Hours',
-    totalLessons: 28,
-    studentsCount: 2100,
-    rating: 4.94,
-    reviewsCount: 410,
-    price: 369,
-    originalPrice: 480,
-    badge: 'Bestseller',
-    featured: false,
-    thumbnailColor: '#14181B',
-    gradient: 'linear-gradient(135deg, #131d24 0%, #1e3545 100%)',
-    instructor: {
-      name: 'Julian Ross',
-      role: 'Staff Design Engineer & Open Source Author',
-      avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80',
-      bio: 'Julian creates the intersection of code and craft, having authored popular animation and layout libraries downloaded millions of times.'
-    },
-    highlights: [
-      'Interactive Canvas & SVG manipulation with performant physics',
-      'React Server Components & streaming suspense boundaries',
-      'Micro-interactions: Hover magnetics, momentum scrolling, and morphs',
-      'Full deployment pipeline on Vercel Edge with zero downtime'
-    ],
-    syllabus: [
-      {
-        title: 'Week 1: The Design Engineer Mindset',
-        lessons: [
-          'Why the Hybrid Role is Dominating Tech Hiring',
-          'Thinking in Vectors, Bezier Curves, and Component Trees',
-          'Setting Up a Lightning-Fast Prototyping Sandbox'
-        ]
-      },
-      {
-        title: 'Week 2: Smooth Motion & Gesture Math',
-        lessons: [
-          'Pointer Events, Velocity Tracking, and Rubber-banding',
-          'Scroll-Linked Animations without Frame Drops',
-          'Layout Animations and FLIP Techniques'
-        ]
+        title: 'Module 3: Identity Delivery & Living Guidelines',
+        lessons: ['Component Specs', 'Brand Books', 'Launch Strategy']
       }
     ]
   }
 ];
 
-export const TESTIMONIAL = {
-  quote: 'The masterclasses feel like an extended foundry: deep intellectual engagement, absolute technical rigor, and zero vanity metrics.',
-  author: 'Genevieve Dupré',
-  role: 'Managing Principal & Creative Partner, Veloce Digital'
-};
+export const MARKETPLACE_ITEMS = [
+  {
+    id: 'art-1',
+    title: 'Harbor in Autumn',
+    medium: 'Oil on canvas / Signed print',
+    price: 240,
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    artist: 'Elena Rostova'
+  },
+  {
+    id: 'art-2',
+    title: 'Constructed Reality: No. 4',
+    medium: 'Charcoal on archival paper',
+    price: 180,
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+    artist: 'Marcus Vance'
+  },
+  {
+    id: 'art-3',
+    title: 'Atelier in Color',
+    medium: 'Fine Art Giclée Print',
+    price: 150,
+    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+    artist: 'Kate Sterling'
+  }
+];
 
-export const FAQ_ITEMS = [
+export const PHYSICAL_GEAR = [
   {
-    question: 'How are cohort masterclasses structured?',
-    answer: 'Each masterclass is structured into high-density modules with on-demand HD lecture recordings, downloadable production repositories, weekly live critique sessions, and direct 1-on-1 code reviews with staff instructors.'
+    id: 'gear-1',
+    title: 'Mastery Sable Brush Set',
+    subtitle: 'Set of 5 Japanese hair brushes',
+    price: 85,
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80'
   },
   {
-    question: 'Do I get lifetime access to the code and curriculum?',
-    answer: 'Yes. Once enrolled, you receive lifetime access to all course materials, future curriculum updates, community Discord access, and exclusive invited masterclass sessions.'
+    id: 'gear-2',
+    title: 'Cold-Press Watercolor Block',
+    subtitle: '300gsm, 20 sheets 100% cotton',
+    price: 34,
+    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80'
   },
   {
-    question: 'Are there team or enterprise pricing packages available?',
-    answer: 'We provide custom enterprise packages for teams of 5 or more with centralized billing, private workshops, and dedicated feedback channels for company design systems.'
+    id: 'gear-3',
+    title: 'Traveler Tabletop Easel',
+    subtitle: 'Solid beechwood with storage drawer',
+    price: 110,
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+export const MENTORS = [
+  {
+    name: 'Sam Roux',
+    role: 'Lead Industrial Designer',
+    action: 'Book a 45-min session',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
   },
   {
-    question: 'What is the refund policy?',
-    answer: 'We offer a no-questions-asked 14-day refund guarantee. If the technical depth does not surpass your expectations, you receive a full refund with one click.'
+    name: 'Marcus Webb',
+    role: 'Director & Typographer',
+    action: 'Book a 45-min session',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+  },
+  {
+    name: 'Kate Sterling',
+    role: 'Founder & Fine Artist',
+    action: 'Book a 45-min session',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
+  }
+];
+
+export const ARTICLES = [
+  {
+    tag: 'ARTICLE',
+    title: 'The importance of tactile craft in a digital world',
+    readTime: '8 min read'
+  },
+  {
+    tag: 'DOWNLOAD',
+    title: 'Copyright-free reference textures from Aya Archive',
+    readTime: '250 Assets • Free'
+  },
+  {
+    tag: 'ESSAY',
+    title: 'Colour theory beyond screens',
+    readTime: '5 min read'
   }
 ];

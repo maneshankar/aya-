@@ -1,70 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { courseApi } from '../api/courseApi';
+import { MessageSquare, Users, Wrench } from 'lucide-react';
 
 export const TrustTicker = () => {
-  const [partners, setPartners] = useState([]);
+  const [tickers, setTickers] = useState([]);
 
   useEffect(() => {
-    courseApi.getTrustPartners().then(res => {
-      if (res.success) setPartners(res.data);
+    courseApi.getTrustTickers().then(res => {
+      if (res.success) setTickers(res.data);
     });
   }, []);
 
-  return (
-    <section style={{ borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)', padding: '24px 0', backgroundColor: 'var(--bg-surface)' }}>
-      <div className="container">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {/* Header Row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-            <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: 'var(--ink-muted)', textTransform: 'uppercase' }}>
-              TRUSTED BY LEADERS ACROSS MODERN TECH, DESIGN STUDIOS & ENTERPRISE FOUNDRIES
-            </div>
-            <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--ink-muted)' }}>
-              100+ Production Blueprints Shipped
-            </div>
-          </div>
+  const icons = [MessageSquare, Users, Wrench];
 
-          {/* Logos Row */}
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '24px',
-              paddingTop: '6px'
-            }}
-          >
-            {partners.map((p, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '13px',
-                  fontWeight: '800',
-                  letterSpacing: '0.06em',
-                  color: 'var(--ink-secondary)',
-                  opacity: 0.85,
-                  transition: 'opacity var(--transition-fast)'
-                }}
-                className="partner-logo"
-              >
-                <span>{p.name}</span>
-                <span style={{ fontSize: '10px', color: 'var(--accent-terracotta)', fontWeight: '600', fontFamily: 'var(--font-mono)' }}>•</span>
-                <span style={{ fontSize: '11px', color: 'var(--ink-muted)', fontWeight: '500' }}>{p.metric}</span>
+  return (
+    <section style={{ borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)', padding: '22px 0', backgroundColor: 'var(--bg-surface)' }}>
+      <div className="container">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '24px'
+          }}
+        >
+          {tickers.map((item, idx) => {
+            const Icon = icons[idx % icons.length];
+            return (
+              <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ color: 'var(--accent-terracotta)', marginTop: '2px' }}>
+                  <Icon size={16} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--ink-primary)', marginBottom: '2px' }}>
+                    {item.title}
+                  </div>
+                  <div style={{ fontSize: '12px', color: 'var(--ink-secondary)', lineHeight: '1.45' }}>
+                    {item.desc}
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
-      <style>{`
-        .partner-logo:hover {
-          opacity: 1 !important;
-          color: var(--ink-primary) !important;
-        }
-      `}</style>
     </section>
   );
 };

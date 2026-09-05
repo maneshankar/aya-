@@ -22,7 +22,7 @@ export const FaqSection = () => {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div className="section-tag" style={{ justifyContent: 'center' }}>FREQUENTLY ASKED QUESTIONS</div>
           <h2 className="section-title-large">
-            Everything you need to know about <span className="italic-serif">Atelier Cohorts</span>.
+            Everything you need to know about <span className="italic-serif">aya+ Cohorts</span>.
           </h2>
         </div>
 

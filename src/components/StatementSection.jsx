@@ -26,7 +26,7 @@ export const StatementSection = ({ onLearnMore }) => {
       <div className="container">
         {/* Header Tag */}
         <div className="section-tag">
-          ABOUT THE ACADEMY
+          ABOUT AYA+
         </div>
 
         {/* Big Editorial Statement */}
@@ -61,7 +61,7 @@ export const StatementSection = ({ onLearnMore }) => {
 
           <div style={{ maxWidth: '420px' }}>
             <p style={{ fontSize: '13.5px', color: 'var(--ink-secondary)', lineHeight: '1.6', marginBottom: '16px' }}>
-              Blending rigorous craft, code architecture, and contemporary aesthetics, we replace generic bootcamps with enduring technical craftsmanship and high-leverage frameworks.
+              Blending rigorous craft, code architecture, and contemporary aesthetics, aya+ replaces generic bootcamps with enduring technical craftsmanship and high-leverage frameworks.
             </p>
             <button
               onClick={onLearnMore}

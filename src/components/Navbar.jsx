@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Bookmark, Search, Menu, X, ArrowUpRight } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 
-export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, onSearchTrigger }) => {
+export const Navbar = ({ cartCount, onOpenCart, onSearchTrigger }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -27,80 +28,74 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        backgroundColor: scrolled ? 'rgba(248, 246, 240, 0.92)' : 'var(--bg-main)',
+        backgroundColor: scrolled ? 'rgba(248, 246, 240, 0.95)' : 'var(--bg-main)',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: `1px solid ${scrolled ? 'var(--border-light)' : 'transparent'}`,
         transition: 'all var(--transition-fast)'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
-        {/* Brand Logo */}
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
+        {/* Brand Logo aya+ */}
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px', fontWeight: '800', letterSpacing: '-0.03em', color: 'var(--ink-primary)' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
         >
-          <span style={{ color: 'var(--accent-terracotta)', fontSize: '20px' }}>●</span>
-          <span>atelier <span style={{ fontWeight: '400', fontSize: '13px', color: 'var(--ink-muted)', marginLeft: '4px' }}>academy</span></span>
+          <Logo size="md" />
         </a>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links matching image */}
         <nav style={{ display: 'none', gap: '28px', alignItems: 'center' }} className="desktop-nav">
-          <button onClick={() => scrollToSection('masterclasses')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
-            Masterclasses
+          <button onClick={() => scrollToSection('overview')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
+            Overview
           </button>
-          <button onClick={() => scrollToSection('methodology')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
-            Methodology
+          <button onClick={() => scrollToSection('marketplace')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
+            Marketplace
           </button>
-          <button onClick={() => scrollToSection('outcomes')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
-            By The Numbers
+          <button onClick={() => scrollToSection('club')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
+            Club
           </button>
-          <button onClick={() => scrollToSection('capabilities')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
-            Capabilities
-          </button>
-          <button onClick={() => scrollToSection('faq')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
-            FAQ
+          <button onClick={() => scrollToSection('journal')} style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }} className="nav-link">
+            Journal
           </button>
         </nav>
 
-        {/* Right CTA Actions */}
+        {/* Right Actions: Log In, Sign up, Cart */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          {/* Quick Search */}
           <button
             onClick={onSearchTrigger}
-            aria-label="Search courses"
+            aria-label="Search"
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '38px',
-              height: '38px',
+              width: '36px',
+              height: '36px',
               borderRadius: 'var(--radius-full)',
               backgroundColor: 'var(--bg-surface-subtle)',
               color: 'var(--ink-primary)'
             }}
           >
-            <Search size={16} strokeWidth={2} />
+            <Search size={15} strokeWidth={2} />
           </button>
 
-          {/* Cart Icon & Badge */}
           <button
             onClick={onOpenCart}
-            aria-label="View enrollment cart"
+            aria-label="View cart"
             style={{
               position: 'relative',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              backgroundColor: 'var(--ink-primary)',
-              color: '#FFFFFF',
-              padding: '8px 16px',
+              backgroundColor: 'var(--bg-surface-subtle)',
+              color: 'var(--ink-primary)',
+              padding: '7px 14px',
               borderRadius: 'var(--radius-full)',
-              fontSize: '13px',
+              fontSize: '12.5px',
               fontWeight: '600'
             }}
           >
-            <ShoppingBag size={15} />
+            <ShoppingBag size={14} />
             <span>Cart</span>
             {cartCount > 0 && (
               <span
@@ -110,12 +105,11 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
                   justifyContent: 'center',
                   backgroundColor: 'var(--accent-terracotta)',
                   color: '#FFFFFF',
-                  width: '18px',
-                  height: '18px',
+                  width: '17px',
+                  height: '17px',
                   borderRadius: '50%',
-                  fontSize: '10.5px',
-                  fontWeight: '700',
-                  marginLeft: '2px'
+                  fontSize: '10px',
+                  fontWeight: '700'
                 }}
               >
                 {cartCount}
@@ -123,18 +117,20 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
             )}
           </button>
 
-          {/* Primary Action */}
-          <button
-            onClick={() => scrollToSection('masterclasses')}
-            className="btn-primary"
-            style={{ display: 'none' }}
-            id="nav-apply-btn"
-          >
-            <span>Explore Cohorts</span>
-            <ArrowUpRight size={15} />
+          <button style={{ fontSize: '13px', fontWeight: '600', color: 'var(--ink-secondary)', display: 'none' }} className="desktop-login">
+            Log In
           </button>
 
-          {/* Mobile Hamburger Menu Toggle */}
+          <button
+            onClick={() => scrollToSection('courses')}
+            className="btn-primary"
+            style={{ display: 'none', padding: '8px 16px', fontSize: '12.5px' }}
+            id="nav-signup-btn"
+          >
+            Sign up
+          </button>
+
+          {/* Mobile Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '6px', color: 'var(--ink-primary)' }}
@@ -146,7 +142,7 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
           style={{
@@ -159,22 +155,19 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
             animation: 'fadeIn 0.2s ease-out'
           }}
         >
-          <button onClick={() => scrollToSection('masterclasses')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
-            Masterclasses
+          <button onClick={() => scrollToSection('overview')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
+            Overview
           </button>
-          <button onClick={() => scrollToSection('methodology')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
-            Methodology
+          <button onClick={() => scrollToSection('marketplace')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
+            Marketplace
           </button>
-          <button onClick={() => scrollToSection('outcomes')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
-            By The Numbers
+          <button onClick={() => scrollToSection('club')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
+            Club
           </button>
-          <button onClick={() => scrollToSection('capabilities')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
-            Capabilities
+          <button onClick={() => scrollToSection('journal')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
+            Journal
           </button>
-          <button onClick={() => scrollToSection('faq')} style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}>
-            FAQ
-          </button>
-          <div style={{ paddingTop: '10px', borderTop: '1px solid var(--border-light)' }}>
+          <div style={{ paddingTop: '10px', borderTop: '1px solid var(--border-light)', display: 'flex', gap: '10px' }}>
             <button onClick={() => { setMobileMenuOpen(false); onOpenCart(); }} className="btn-primary" style={{ width: '100%' }}>
               View Cart ({cartCount})
             </button>
@@ -185,7 +178,8 @@ export const Navbar = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
       <style>{`
         @media (min-width: 860px) {
           .desktop-nav { display: flex !important; }
-          #nav-apply-btn { display: inline-flex !important; }
+          .desktop-login { display: inline-block !important; }
+          #nav-signup-btn { display: inline-flex !important; }
           .mobile-toggle { display: none !important; }
         }
         .nav-link:hover {

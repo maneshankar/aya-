@@ -1,127 +1,77 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Send } from 'lucide-react';
+import React from 'react';
+import { Logo } from './Logo';
 
-export const Footer = ({ onCategoryClick }) => {
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (newsletterEmail) {
-      setSubscribed(true);
-      setNewsletterEmail('');
-    }
-  };
-
+export const Footer = () => {
   return (
-    <footer style={{ backgroundColor: 'var(--bg-main)', borderTop: '1px solid var(--border-light)', padding: '70px 0 36px' }}>
+    <footer style={{ backgroundColor: 'var(--bg-main)', borderTop: '1px solid var(--border-light)', padding: '60px 0 32px' }}>
       <div className="container">
-        {/* Top 4-Column Grid */}
+        {/* Top Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '40px',
-            marginBottom: '60px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '36px',
+            marginBottom: '48px'
           }}
         >
-          {/* Brand & Manifesto Column */}
-          <div style={{ maxWidth: '320px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px', fontWeight: '800', letterSpacing: '-0.03em', color: 'var(--ink-primary)', marginBottom: '16px' }}>
-              <span style={{ color: 'var(--accent-terracotta)', fontSize: '20px' }}>●</span>
-              <span>atelier</span>
+          {/* Brand Column */}
+          <div style={{ maxWidth: '300px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+              <Logo size="lg" />
             </div>
 
-            <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.6', marginBottom: '20px' }}>
-              A boutique academy for engineering craft, design systems, and autonomous AI systems. Based in San Francisco & London, operating globally.
+            <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.55' }}>
+              A dedicated academy for design disciplines, physical craft, and tactile art. London / SF / Zurich.
             </p>
-
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '11.5px', color: 'var(--accent-green)', fontWeight: '600', fontFamily: 'var(--font-mono)' }}>
-              <span className="status-dot green"></span>
-              <span>All cohorts operational & active</span>
-            </div>
           </div>
 
-          {/* Disciplines Column */}
+          {/* Academy Column */}
           <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
-              DISCIPLINES
-            </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#masterclasses" className="footer-link">Design Token Architecture</a></li>
-              <li><a href="#masterclasses" className="footer-link">Autonomous AI Agents</a></li>
-              <li><a href="#masterclasses" className="footer-link">Sub-50ms Web Systems</a></li>
-              <li><a href="#masterclasses" className="footer-link">Category Creation Strategy</a></li>
-              <li><a href="#masterclasses" className="footer-link">Figma to React Pipelines</a></li>
-            </ul>
-          </div>
-
-          {/* Academy Info Column */}
-          <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
               ACADEMY
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#masterclasses" className="footer-link">Current Cohorts</a></li>
-              <li><a href="#methodology" className="footer-link">Curriculum Standards</a></li>
-              <li><a href="#outcomes" className="footer-link">Alumni Verification</a></li>
-              <li><a href="#capabilities" className="footer-link">Instructor Roster</a></li>
-              <li><a href="#faq" className="footer-link">Enterprise Teams</a></li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
+              <li><a href="#courses" className="footer-link">All Masterclasses</a></li>
+              <li><a href="#courses" className="footer-link">Free Courses</a></li>
+              <li><a href="#marketplace" className="footer-link">Physical Kits</a></li>
+              <li><a href="#overview" className="footer-link">Mentorship</a></li>
             </ul>
           </div>
 
-          {/* Newsletter Column */}
+          {/* Marketplace Column */}
           <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
-              ATELIER DISPATCH
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+              MARKETPLACE
             </div>
-            <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.5', marginBottom: '14px' }}>
-              Bi-weekly technical breakdowns, repo templates, and guest masterclass invites.
-            </p>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
+              <li><a href="#marketplace" className="footer-link">Original Artworks</a></li>
+              <li><a href="#marketplace" className="footer-link">Prints & Editions</a></li>
+              <li><a href="#marketplace" className="footer-link">Artist Submissions</a></li>
+            </ul>
+          </div>
 
-            {subscribed ? (
-              <div style={{ fontSize: '12px', color: 'var(--accent-green)', fontWeight: '600' }}>
-                ✓ Subscribed. Check your inbox soon.
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '6px' }}>
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter email..."
-                  value={newsletterEmail}
-                  onChange={e => setNewsletterEmail(e.target.value)}
-                  style={{
-                    padding: '8px 12px',
-                    backgroundColor: 'var(--bg-surface)',
-                    border: '1px solid var(--border-medium)',
-                    borderRadius: 'var(--radius-xs)',
-                    fontSize: '12px',
-                    flexGrow: 1,
-                    minWidth: 0
-                  }}
-                />
-                <button type="submit" className="btn-primary" style={{ padding: '8px 14px' }}>
-                  <Send size={13} />
-                </button>
-              </form>
-            )}
-
-            <div style={{ marginTop: '16px', fontSize: '11.5px', fontFamily: 'var(--font-mono)', color: 'var(--ink-muted)' }}>
-              admissions@atelier.design
+          {/* Account Column */}
+          <div>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+              ACCOUNT
             </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
+              <li><a href="#overview" className="footer-link">Sign In</a></li>
+              <li><a href="#overview" className="footer-link">Sign Up</a></li>
+              <li><a href="#overview" className="footer-link">Student Portal</a></li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Legal Bar */}
+        {/* Bottom Bar */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '16px',
-            paddingTop: '28px',
+            gap: '14px',
+            paddingTop: '24px',
             borderTop: '1px solid var(--border-light)',
             fontSize: '11.5px',
             color: 'var(--ink-muted)',
@@ -129,12 +79,11 @@ export const Footer = ({ onCategoryClick }) => {
           }}
         >
           <div>
-            © 2026 Atelier Academy, Inc. All rights reserved. Crafted with precision.
+            © 2026 aya+, Inc. All rights reserved. Built for makers.
           </div>
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ display: 'flex', gap: '18px' }}>
             <a href="#" className="footer-link">Privacy Policy</a>
-            <a href="#" className="footer-link">Terms of Service</a>
-            <a href="#" className="footer-link">Code of Conduct</a>
+            <a href="#" className="footer-link">Terms</a>
           </div>
         </div>
       </div>

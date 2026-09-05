@@ -1,9 +1,9 @@
 import React from 'react';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-export const CtaBanner = ({ onEnrollClick, onSyllabusClick }) => {
+export const CtaBanner = ({ onJoinWaitlist }) => {
   return (
-    <section style={{ backgroundColor: 'var(--bg-dark)', color: '#FFFFFF', padding: '60px 0' }}>
+    <section style={{ backgroundColor: 'var(--bg-dark)', color: '#FFFFFF', padding: '56px 0' }}>
       <div className="container">
         <div
           style={{
@@ -11,71 +11,40 @@ export const CtaBanner = ({ onEnrollClick, onSyllabusClick }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '32px'
+            gap: '28px'
           }}
         >
           {/* Left copy */}
-          <div style={{ maxWidth: '640px' }}>
+          <div style={{ maxWidth: '620px' }}>
             <h2
               style={{
-                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
-                fontWeight: '700',
+                fontSize: 'clamp(1.7rem, 2.8vw, 2.3rem)',
+                fontWeight: '800',
                 lineHeight: '1.15',
                 letterSpacing: '-0.03em',
                 marginBottom: '10px'
               }}
             >
-              Built for visionary builders,{' '}
-              <span className="italic-serif" style={{ color: 'var(--accent-terracotta)', fontWeight: '400' }}>
-                not algorithms
-              </span>
-              .
+              Built for makers, not algorithms.
             </h2>
-            <p style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.5' }}>
-              Every masterclass cohort prioritizes deep mastery and senior mentorship. Gain instant access to production repos, token pipelines, and lifetime updates.
+            <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.55' }}>
+              Live critiques, dedicated mentors, and career-level curriculum from artists and designers leading their industries. Jump in and create your first course today.
             </p>
           </div>
 
-          {/* Right Action Buttons */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+          {/* Right Action Button */}
+          <div>
             <button
-              onClick={onEnrollClick}
+              onClick={onJoinWaitlist}
               className="btn-primary"
-              style={{ padding: '13px 26px', fontSize: '13.5px' }}
+              style={{ padding: '12px 24px', fontSize: '13.5px' }}
             >
-              <span>Enroll in Current Cohort</span>
+              <span>Join the waitlist</span>
               <ArrowRight size={15} />
-            </button>
-
-            <button
-              onClick={onSyllabusClick}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                backgroundColor: 'transparent',
-                color: '#FFFFFF',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                padding: '13px 22px',
-                borderRadius: 'var(--radius-xs)',
-                fontSize: '13.5px',
-                fontWeight: '600'
-              }}
-              className="cta-secondary-btn"
-            >
-              <FileText size={15} />
-              <span>Syllabus Guide</span>
             </button>
           </div>
         </div>
       </div>
-
-      <style>{`
-        .cta-secondary-btn:hover {
-          border-color: #FFFFFF;
-          background-color: rgba(255, 255, 255, 0.08);
-        }
-      `}</style>
     </section>
   );
 };

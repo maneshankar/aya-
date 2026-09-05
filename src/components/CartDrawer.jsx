@@ -240,7 +240,7 @@ export const CartDrawer = ({
                       <Tag size={14} color="var(--ink-muted)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
                       <input
                         type="text"
-                        placeholder="Try code ATELIER20 or STUDIO50"
+                        placeholder="Try code AYAPLUS20 or AYA50"
                         value={promoCode}
                         onChange={e => setPromoCode(e.target.value)}
                         style={{

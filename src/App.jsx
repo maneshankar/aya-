@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustTicker } from './components/TrustTicker';
-import { StatementSection } from './components/StatementSection';
-import { StatsCounter } from './components/StatsCounter';
+import { WhatsInTheBox } from './components/WhatsInTheBox';
 import { CourseCatalog } from './components/CourseCatalog';
-import { CourseDetailModal } from './components/CourseDetailModal';
-import { LearningPillars } from './components/LearningPillars';
-import { TestimonialQuote } from './components/TestimonialQuote';
-import { FaqSection } from './components/FaqSection';
+import { MarketplaceSection } from './components/MarketplaceSection';
+import { PhysicalGearSection } from './components/PhysicalGearSection';
+import { MentorsSection } from './components/MentorsSection';
+import { ArticlesSection } from './components/ArticlesSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
+import { CourseDetailModal } from './components/CourseDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { Toast } from './components/Toast';
 import { courseApi } from './api/courseApi';
@@ -20,11 +20,8 @@ export function App() {
   const [wishlist, setWishlist] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [toastMessage, setToastMessage] = useState(null);
-  const searchInputRef = useRef(null);
 
-  // Initialize wishlist from API storage
   useEffect(() => {
     setWishlist(courseApi.getWishlist());
   }, []);
@@ -33,49 +30,31 @@ export function App() {
     setToastMessage(message);
     setTimeout(() => {
       setToastMessage(null);
-    }, 3800);
+    }, 3500);
   };
 
   const handleToggleWishlist = (courseId) => {
     const result = courseApi.toggleWishlist(courseId);
     setWishlist(result.wishlist);
-    showToast(result.isSaved ? 'Masterclass added to wishlist' : 'Removed from wishlist');
+    showToast(result.isSaved ? 'Saved to your collection' : 'Removed from collection');
   };
 
-  const handleAddToCart = (course) => {
-    if (cart.some(c => c.id === course.id)) {
+  const handleAddToCart = (item) => {
+    if (cart.some(c => c.id === item.id)) {
       setIsCartOpen(true);
       return;
     }
-    setCart(prev => [...prev, course]);
+    setCart(prev => [...prev, item]);
     setIsCartOpen(true);
+    showToast(`Added ${item.title} to cart`);
   };
 
-  const handleQuickEnroll = (course) => {
-    if (!cart.some(c => c.id === course.id)) {
-      setCart(prev => [...prev, course]);
-    }
-    setIsCartOpen(true);
-  };
-
-  const handleRemoveFromCart = (courseId) => {
-    setCart(prev => prev.filter(c => c.id !== courseId));
+  const handleRemoveFromCart = (itemId) => {
+    setCart(prev => prev.filter(c => c.id !== itemId));
   };
 
   const handleClearCart = () => {
     setCart([]);
-  };
-
-  const handleSearchTrigger = () => {
-    const el = document.getElementById('masterclasses');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        if (searchInputRef.current) {
-          searchInputRef.current.focus();
-        }
-      }, 500);
-    }
   };
 
   const scrollToSection = (id) => {
@@ -87,70 +66,72 @@ export function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Navigation */}
+      {/* Navbar with exact links: Overview, Marketplace, Club, Journal */}
       <Navbar
         cartCount={cart.length}
-        wishlistCount={wishlist.length}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenWishlist={() => scrollToSection('masterclasses')}
-        onSearchTrigger={handleSearchTrigger}
+        onSearchTrigger={() => scrollToSection('courses')}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Page Layout matching image */}
       <main style={{ flexGrow: 1 }}>
-        {/* Editorial Hero */}
+        {/* 1. Hero: The education platform built for design disciplines */}
         <Hero
-          onExploreClick={() => scrollToSection('masterclasses')}
-          onMethodologyClick={() => scrollToSection('methodology')}
+          onJoinWaitlist={() => setIsCartOpen(true)}
+          onExploreFreeCourses={() => scrollToSection('courses')}
         />
 
-        {/* Trust & Enterprise Ticker */}
+        {/* 2. Three Checkpoints / Tickers */}
         <TrustTicker />
 
-        {/* Editorial Studio Statement & Visual Grid */}
-        <StatementSection
-          onLearnMore={() => scrollToSection('masterclasses')}
-        />
+        {/* 3. What's in the box */}
+        <WhatsInTheBox />
 
-        {/* Verifiable Outcomes & Stats */}
-        <StatsCounter />
-
-        {/* Filterable Masterclasses Catalog */}
+        {/* 5. Free courses from people who make this for a living */}
         <CourseCatalog
           onSelectCourse={(course) => setSelectedCourse(course)}
-          onEnroll={handleQuickEnroll}
-          wishlist={wishlist}
-          onToggleWishlist={handleToggleWishlist}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          searchInputRef={searchInputRef}
+          onEnroll={handleAddToCart}
         />
 
-        {/* Capabilities & Methodology Pillars */}
-        <LearningPillars />
+        {/* 6. Marketplace: Original work, straight from the artist */}
+        <MarketplaceSection
+          onAddToCart={handleAddToCart}
+        />
 
-        {/* Editorial Testimonial */}
-        <TestimonialQuote />
+        {/* 7. Shop • Physical Gear: Canvas, brushes, paint — the physical kit */}
+        <PhysicalGearSection
+          onAddToCart={handleAddToCart}
+        />
 
-        {/* FAQ Accordion */}
-        <FaqSection />
+        {/* 8. Mentors • 1:1 Calls: Get unstuck with 1:1 guidance */}
+        <MentorsSection
+          onBookMentor={(mentor) => {
+            showToast(`Opening booking calendar for ${mentor.name}...`);
+          }}
+        />
 
-        {/* Bottom Dark CTA Bar */}
+        {/* 9. Free Access • Open Source: Articles, references and copyright-free assets */}
+        <ArticlesSection
+          onSelectArticle={(article) => {
+            showToast(`Opening "${article.title}"`);
+          }}
+        />
+
+        {/* 10. Built for makers, not algorithms banner */}
         <CtaBanner
-          onEnrollClick={() => scrollToSection('masterclasses')}
-          onSyllabusClick={() => scrollToSection('capabilities')}
+          onJoinWaitlist={() => setIsCartOpen(true)}
         />
       </main>
 
-      {/* Editorial Footer */}
+      {/* Footer matching exact columns and links */}
       <Footer />
 
-      {/* Course Detail & Syllabus Modal */}
+      {/* Course Detail Modal */}
       {selectedCourse && (
         <CourseDetailModal
           course={selectedCourse}
           onClose={() => setSelectedCourse(null)}
-          onEnroll={handleQuickEnroll}
+          onEnroll={handleAddToCart}
           isSaved={wishlist.includes(selectedCourse.id)}
           onToggleSave={handleToggleWishlist}
         />
@@ -168,7 +149,7 @@ export function App() {
         }}
       />
 
-      {/* Toast Notification */}
+      {/* Toast */}
       <Toast
         message={toastMessage}
         onClose={() => setToastMessage(null)}
