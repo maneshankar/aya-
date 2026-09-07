@@ -1,7 +1,14 @@
 import React from 'react';
 import { Logo } from './Logo';
 
-export const Footer = () => {
+export const Footer = ({ onNavigate }) => {
+  const handleLink = (page, sectionId = null, e) => {
+    if (e) e.preventDefault();
+    if (onNavigate) {
+      onNavigate(page, sectionId);
+    }
+  };
+
   return (
     <footer style={{ backgroundColor: 'var(--bg-main)', borderTop: '1px solid var(--border-light)', padding: '60px 0 32px' }}>
       <div className="container">
@@ -16,7 +23,7 @@ export const Footer = () => {
         >
           {/* Brand Column */}
           <div style={{ maxWidth: '300px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px', cursor: 'pointer' }} onClick={(e) => handleLink('overview', null, e)}>
               <Logo size="lg" />
             </div>
 
@@ -31,10 +38,10 @@ export const Footer = () => {
               ACADEMY
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#courses" className="footer-link">All Masterclasses</a></li>
-              <li><a href="#courses" className="footer-link">Free Courses</a></li>
-              <li><a href="#marketplace" className="footer-link">Physical Kits</a></li>
-              <li><a href="#overview" className="footer-link">Mentorship</a></li>
+              <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">All Masterclasses</a></li>
+              <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Free Courses</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Physical Kits</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', 'mentors', e)} className="footer-link">Mentorship</a></li>
             </ul>
           </div>
 
@@ -44,9 +51,9 @@ export const Footer = () => {
               MARKETPLACE
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#marketplace" className="footer-link">Original Artworks</a></li>
-              <li><a href="#marketplace" className="footer-link">Prints & Editions</a></li>
-              <li><a href="#marketplace" className="footer-link">Artist Submissions</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Original Artworks</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Prints & Editions</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Artist Submissions</a></li>
             </ul>
           </div>
 
@@ -56,9 +63,9 @@ export const Footer = () => {
               ACCOUNT
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#overview" className="footer-link">Sign In</a></li>
-              <li><a href="#overview" className="footer-link">Sign Up</a></li>
-              <li><a href="#overview" className="footer-link">Student Portal</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Sign In</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Sign Up</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', null, e)} className="footer-link">Student Portal</a></li>
             </ul>
           </div>
         </div>

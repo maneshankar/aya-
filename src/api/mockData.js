@@ -228,25 +228,79 @@ export const MARKETPLACE_ITEMS = [
     id: 'art-1',
     title: 'Harbor in Autumn',
     medium: 'Oil on canvas / Signed print',
+    category: 'Paintings',
     price: 240,
+    dimensions: '24" × 32" (Framed)',
+    edition: 'Edition of 50 • Hand Signed',
     image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
-    artist: 'Elena Rostova'
+    artist: 'Elena Rostova',
+    location: 'St. Petersburg / Vienna',
+    description: 'Layered impasto depicting maritime mist, twilight reflection, and textured harborside geometry.'
   },
   {
     id: 'art-2',
     title: 'Constructed Reality: No. 4',
     medium: 'Charcoal on archival paper',
+    category: 'Drawings & Charcoal',
     price: 180,
+    dimensions: '18" × 24" (Deckled Edge)',
+    edition: 'Original Unique Work',
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    artist: 'Marcus Vance'
+    artist: 'Marcus Vance',
+    location: 'Copenhagen',
+    description: 'Monochromatic architectural study exploring brutalist shadow geometry and compressed perspective.'
   },
   {
     id: 'art-3',
     title: 'Atelier in Color',
     medium: 'Fine Art Giclée Print',
+    category: 'Prints & Editions',
     price: 150,
+    dimensions: '20" × 28" (Archival Cotton)',
+    edition: 'Edition of 100 • Embossed Seal',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
-    artist: 'Kate Sterling'
+    artist: 'Kate Sterling',
+    location: 'London',
+    description: 'Classical floral Dutch-master still life reimagined with contemporary color saturation and chiaroscuro.'
+  },
+  {
+    id: 'art-4',
+    title: 'Kinetic Monolith Study',
+    medium: 'Sculptural Bronze & Cast Plaster',
+    category: 'Sculpture & Objects',
+    price: 320,
+    dimensions: '12" × 8" × 6"',
+    edition: 'Limited Cast of 15',
+    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    artist: 'Sam Roux',
+    location: 'Zurich',
+    description: 'Solid sand-cast bronze form exploring cantilevered weight distribution and organic ergonomics.'
+  },
+  {
+    id: 'art-5',
+    title: 'Typographic Topography: Kyoto',
+    medium: 'Risograph & Metallic Foil Print',
+    category: 'Prints & Editions',
+    price: 120,
+    dimensions: '16" × 22" (Japanese Washi)',
+    edition: 'Numbered Edition of 75',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    artist: 'Marcus Webb',
+    location: 'Kyoto / San Francisco',
+    description: 'Dual-layer soy ink print over textured Mulberry paper mapping urban phonetic rhythm.'
+  },
+  {
+    id: 'art-6',
+    title: 'Ochre Horizon & Earth Pigment',
+    medium: 'Raw Pigment & Linseed on Raw Linen',
+    category: 'Paintings',
+    price: 290,
+    dimensions: '30" × 30" (Stretched Linen)',
+    edition: 'Original Unique Work',
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80',
+    artist: 'Elena Rostova',
+    location: 'Vienna',
+    description: 'Mineral earths ground by hand in cold-pressed walnut oil on Belgian portrait linen.'
   }
 ];
 
@@ -312,3 +366,4 @@ export const ARTICLES = [
     readTime: '5 min read'
   }
 ];
+

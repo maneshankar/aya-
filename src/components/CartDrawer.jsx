@@ -123,7 +123,7 @@ export const CartDrawer = ({
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '16px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--ink-primary)' }}>
-              {orderConfirmation ? 'Enrollment Confirmed' : `Cohort Cart (${cartItems.length})`}
+              {orderConfirmation ? 'Order Confirmed' : `Your Cart (${cartItems.length})`}
             </span>
           </div>
           <button
@@ -152,20 +152,20 @@ export const CartDrawer = ({
             </div>
 
             <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--ink-primary)' }}>
-              Welcome to the Cohort!
+              Order Confirmed!
             </h3>
 
             <p style={{ fontSize: '13.5px', color: 'var(--ink-secondary)', lineHeight: '1.6', maxWidth: '360px' }}>
-              Your seat is secured for Order <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--ink-primary)' }}>{orderConfirmation.orderId}</strong>. Onboarding details and repo access have been dispatched to <strong style={{ color: 'var(--ink-primary)' }}>{orderConfirmation.customer.email}</strong>.
+              Your order is secured under ID <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--ink-primary)' }}>{orderConfirmation.orderId}</strong>. Confirmation and shipping / access details have been dispatched to <strong style={{ color: 'var(--ink-primary)' }}>{orderConfirmation.customer.email}</strong>.
             </p>
 
             <div style={{ width: '100%', padding: '16px', backgroundColor: 'var(--bg-surface-subtle)', borderRadius: 'var(--radius-sm)', textAlign: 'left', marginTop: '12px' }}>
               <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '8px' }}>
-                Enrolled Masterclasses:
+                Purchased Items:
               </div>
               {orderConfirmation.items.map((it, idx) => (
                 <div key={idx} style={{ fontSize: '12.5px', fontWeight: '600', color: 'var(--ink-primary)', padding: '4px 0' }}>
-                  • {it.title}
+                  • {it.title} {it.price ? `($${it.price})` : ''}
                 </div>
               ))}
             </div>
@@ -175,7 +175,7 @@ export const CartDrawer = ({
               className="btn-primary"
               style={{ width: '100%', marginTop: '20px' }}
             >
-              <span>Done & Return to Catalog</span>
+              <span>Done & Continue Browsing</span>
             </button>
           </div>
         ) : (
@@ -183,9 +183,9 @@ export const CartDrawer = ({
           <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
             {cartItems.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--ink-muted)' }}>
-                <p style={{ fontSize: '14px', marginBottom: '16px' }}>Your cohort cart is empty.</p>
+                <p style={{ fontSize: '14px', marginBottom: '16px' }}>Your cart is empty.</p>
                 <button onClick={onClose} className="btn-secondary">
-                  Explore Masterclasses
+                  Explore Catalog & Marketplace
                 </button>
               </div>
             ) : (
@@ -197,28 +197,38 @@ export const CartDrawer = ({
                       key={item.id}
                       style={{
                         display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-start',
+                        gap: '12px',
+                        alignItems: 'center',
                         padding: '14px',
                         border: '1px solid var(--border-light)',
                         borderRadius: 'var(--radius-sm)',
                         backgroundColor: 'var(--bg-surface)'
                       }}
                     >
-                      <div style={{ flexGrow: 1, paddingRight: '12px' }}>
-                        <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--accent-terracotta)', fontWeight: '700', textTransform: 'uppercase' }}>
-                          {item.category}
+                      {(item.image || item.coverImage) && (
+                        <div style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-xs)', overflow: 'hidden', backgroundColor: '#1A1A1A', flexShrink: 0 }}>
+                          <img
+                            src={item.image || item.coverImage}
+                            alt={item.title}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          />
                         </div>
-                        <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--ink-primary)', margin: '2px 0 4px' }}>
+                      )}
+
+                      <div style={{ flexGrow: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: 'var(--accent-terracotta)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                          {item.category || (item.medium ? 'Marketplace Artwork' : 'Curated Item')}
+                        </div>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--ink-primary)', margin: '2px 0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {item.title}
                         </div>
-                        <div style={{ fontSize: '11.5px', color: 'var(--ink-muted)' }}>
-                          Instructor: {item.instructor.name}
+                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {item.instructor?.name ? `Instructor: ${item.instructor.name}` : item.artist ? `Artist: ${item.artist}` : item.medium || item.subtitle || 'aya+ Verified'}
                         </div>
                       </div>
 
-                      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
-                        <span style={{ fontSize: '14px', fontWeight: '800', color: 'var(--ink-primary)' }}>
+                      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px', flexShrink: 0 }}>
+                        <span style={{ fontSize: '14px', fontWeight: '800', color: 'var(--ink-primary)', fontFamily: 'var(--font-mono)' }}>
                           ${item.price}
                         </span>
                         <button
