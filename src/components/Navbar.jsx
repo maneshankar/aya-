@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, Menu, X } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, ArrowRight } from 'lucide-react';
 import { Logo } from './Logo';
 
 export const Navbar = ({
@@ -33,14 +33,14 @@ export const Navbar = ({
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        backgroundColor: scrolled ? 'rgba(248, 246, 240, 0.95)' : 'var(--bg-main)',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: `1px solid ${scrolled ? 'var(--border-light)' : 'transparent'}`,
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: `1px solid ${scrolled ? 'rgba(12, 12, 14, 0.06)' : 'transparent'}`,
         transition: 'all var(--transition-fast)'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
-        {/* Brand Logo aya+ */}
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+        {/* Brand Logo */}
         <a
           href="#"
           onClick={(e) => {
@@ -48,20 +48,22 @@ export const Navbar = ({
             handleNavClick('overview');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
         >
           <Logo size="md" />
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav style={{ display: 'none', gap: '28px', alignItems: 'center' }} className="desktop-nav">
+        {/* Center Navigation Links */}
+        <nav style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="desktop-nav">
           <button
             onClick={() => handleNavClick('overview')}
             style={{
-              fontSize: '13.5px',
+              fontSize: '13px',
               fontWeight: currentPage === 'overview' ? '700' : '500',
               color: currentPage === 'overview' ? 'var(--ink-primary)' : 'var(--ink-secondary)',
-              position: 'relative'
+              letterSpacing: '-0.01em',
+              position: 'relative',
+              padding: '6px 0'
             }}
             className="nav-link"
           >
@@ -70,24 +72,34 @@ export const Navbar = ({
               <span
                 style={{
                   position: 'absolute',
-                  bottom: '-6px',
+                  bottom: '0px',
                   left: 0,
                   right: 0,
                   height: '2px',
-                  backgroundColor: 'var(--accent-terracotta)',
-                  borderRadius: '1px'
+                  backgroundColor: 'var(--ink-primary)',
+                  borderRadius: '2px'
                 }}
               />
             )}
           </button>
 
           <button
+            onClick={() => handleNavClick('overview', 'courses')}
+            style={{ fontSize: '13px', fontWeight: '500', color: 'var(--ink-secondary)', letterSpacing: '-0.01em' }}
+            className="nav-link"
+          >
+            Courses
+          </button>
+
+          <button
             onClick={() => handleNavClick('marketplace')}
             style={{
-              fontSize: '13.5px',
+              fontSize: '13px',
               fontWeight: currentPage === 'marketplace' ? '700' : '500',
               color: currentPage === 'marketplace' ? 'var(--ink-primary)' : 'var(--ink-secondary)',
-              position: 'relative'
+              letterSpacing: '-0.01em',
+              position: 'relative',
+              padding: '6px 0'
             }}
             className="nav-link"
           >
@@ -96,12 +108,12 @@ export const Navbar = ({
               <span
                 style={{
                   position: 'absolute',
-                  bottom: '-6px',
+                  bottom: '0px',
                   left: 0,
                   right: 0,
                   height: '2px',
-                  backgroundColor: 'var(--accent-terracotta)',
-                  borderRadius: '1px'
+                  backgroundColor: 'var(--ink-primary)',
+                  borderRadius: '2px'
                 }}
               />
             )}
@@ -109,23 +121,23 @@ export const Navbar = ({
 
           <button
             onClick={() => handleNavClick('overview', 'mentors')}
-            style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }}
+            style={{ fontSize: '13px', fontWeight: '500', color: 'var(--ink-secondary)', letterSpacing: '-0.01em' }}
             className="nav-link"
           >
-            Club
+            Mentors
           </button>
 
           <button
             onClick={() => handleNavClick('overview', 'articles')}
-            style={{ fontSize: '13.5px', fontWeight: '500', color: 'var(--ink-secondary)' }}
+            style={{ fontSize: '13px', fontWeight: '500', color: 'var(--ink-secondary)', letterSpacing: '-0.01em' }}
             className="nav-link"
           >
             Journal
           </button>
         </nav>
 
-        {/* Right Actions: Search, Cart, Sign up */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Right Action: Search, Cart, Pill CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             onClick={onSearchTrigger}
             aria-label="Search"
@@ -153,9 +165,9 @@ export const Navbar = ({
               gap: '6px',
               backgroundColor: 'var(--bg-surface-subtle)',
               color: 'var(--ink-primary)',
-              padding: '7px 14px',
+              padding: '8px 14px',
               borderRadius: 'var(--radius-full)',
-              fontSize: '12.5px',
+              fontSize: '12px',
               fontWeight: '600'
             }}
           >
@@ -167,12 +179,12 @@ export const Navbar = ({
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundColor: 'var(--accent-terracotta)',
+                  backgroundColor: 'var(--aurora-pink)',
                   color: '#FFFFFF',
-                  width: '17px',
-                  height: '17px',
+                  width: '18px',
+                  height: '18px',
                   borderRadius: '50%',
-                  fontSize: '10px',
+                  fontSize: '10.5px',
                   fontWeight: '700'
                 }}
               >
@@ -181,13 +193,15 @@ export const Navbar = ({
             )}
           </button>
 
+          {/* Pill Outline CTA with Arrow */}
           <button
             onClick={() => handleNavClick('overview', 'courses')}
-            className="btn-primary"
-            style={{ display: 'none', padding: '8px 16px', fontSize: '12.5px' }}
+            className="btn-pill-cta"
             id="nav-signup-btn"
+            style={{ display: 'none' }}
           >
-            Sign up
+            <span>TRY IT FOR FREE</span>
+            <ArrowRight size={13} strokeWidth={2.5} />
           </button>
 
           {/* Mobile Toggle */}
@@ -206,9 +220,10 @@ export const Navbar = ({
       {mobileMenuOpen && (
         <div
           style={{
-            backgroundColor: 'var(--bg-surface)',
+            backgroundColor: 'rgba(255, 255, 255, 0.98)',
+            backdropFilter: 'blur(20px)',
             borderBottom: '1px solid var(--border-light)',
-            padding: '20px 28px',
+            padding: '24px 28px',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
@@ -221,11 +236,17 @@ export const Navbar = ({
               textAlign: 'left',
               fontSize: '15px',
               fontWeight: currentPage === 'overview' ? '700' : '600',
-              color: currentPage === 'overview' ? 'var(--accent-terracotta)' : 'var(--ink-primary)',
+              color: currentPage === 'overview' ? 'var(--aurora-coral)' : 'var(--ink-primary)',
               padding: '6px 0'
             }}
           >
             Overview
+          </button>
+          <button
+            onClick={() => handleNavClick('overview', 'courses')}
+            style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}
+          >
+            Courses
           </button>
           <button
             onClick={() => handleNavClick('marketplace')}
@@ -233,7 +254,7 @@ export const Navbar = ({
               textAlign: 'left',
               fontSize: '15px',
               fontWeight: currentPage === 'marketplace' ? '700' : '600',
-              color: currentPage === 'marketplace' ? 'var(--accent-terracotta)' : 'var(--ink-primary)',
+              color: currentPage === 'marketplace' ? 'var(--aurora-coral)' : 'var(--ink-primary)',
               padding: '6px 0'
             }}
           >
@@ -243,7 +264,7 @@ export const Navbar = ({
             onClick={() => handleNavClick('overview', 'mentors')}
             style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', padding: '6px 0' }}
           >
-            Club
+            Mentors
           </button>
           <button
             onClick={() => handleNavClick('overview', 'articles')}
@@ -251,13 +272,14 @@ export const Navbar = ({
           >
             Journal
           </button>
-          <div style={{ paddingTop: '10px', borderTop: '1px solid var(--border-light)', display: 'flex', gap: '10px' }}>
+          <div style={{ paddingTop: '12px', borderTop: '1px solid var(--border-light)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <button
-              onClick={() => { setMobileMenuOpen(false); onOpenCart(); }}
-              className="btn-primary"
-              style={{ width: '100%' }}
+              onClick={() => { setMobileMenuOpen(false); handleNavClick('overview', 'courses'); }}
+              className="btn-pill-cta"
+              style={{ width: '100%', justifyContent: 'center' }}
             >
-              View Cart ({cartCount})
+              <span>TRY IT FOR FREE</span>
+              <ArrowRight size={13} strokeWidth={2.5} />
             </button>
           </div>
         </div>

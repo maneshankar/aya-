@@ -69,9 +69,9 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
   };
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-main)', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: 'var(--bg-main)', minHeight: '100vh', position: 'relative' }}>
       {/* Top Banner / Breadcrumb */}
-      <div style={{ borderBottom: '1px solid var(--border-light)', backgroundColor: 'var(--bg-surface)' }}>
+      <div style={{ borderBottom: '1px solid var(--border-light)', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <button
             onClick={() => onNavigate('overview')}
@@ -91,33 +91,50 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
           </button>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--ink-muted)' }}>
-              AYA+ CURATED GALLERY
+            <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--aurora-coral)', fontWeight: '700' }}>
+              AYA+ CURATED FINE ART GALLERY
             </span>
           </div>
         </div>
       </div>
 
-      {/* Hero Header */}
-      <section style={{ padding: '60px 0 40px', borderBottom: '1px solid var(--border-light)', backgroundColor: 'var(--bg-surface)' }}>
-        <div className="container">
-          <div style={{ maxWidth: '800px' }}>
-            <div className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <Sparkles size={12} />
-              <span>INDEPENDENT ARTIST MARKETPLACE</span>
+      {/* Hero Header with subtle aurora glow */}
+      <section style={{ padding: '64px 0 44px', borderBottom: '1px solid var(--border-light)', backgroundColor: '#FFFFFF', position: 'relative', overflow: 'hidden' }}>
+        {/* Soft Background Aurora */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-50%',
+            right: '-10%',
+            width: '600px',
+            height: '450px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(233, 59, 129, 0.15) 0%, rgba(255, 171, 46, 0.12) 50%, transparent 75%)',
+            filter: 'blur(70px)',
+            pointerEvents: 'none'
+          }}
+        />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '820px' }}>
+            <div style={{ marginBottom: '10px' }}>
+              <span className="status-pill">
+                <span className="status-dot" style={{ backgroundColor: 'var(--aurora-pink)' }} />
+                <span>INDEPENDENT ARTIST MARKETPLACE</span>
+              </span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '800', letterSpacing: '-0.03em', color: 'var(--ink-primary)', marginTop: '8px', marginBottom: '14px', lineHeight: '1.1' }}>
-              Original work, straight from the studio.
+            <h1 style={{ fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)', fontWeight: '800', letterSpacing: '-0.04em', color: 'var(--ink-primary)', marginTop: '8px', marginBottom: '14px', lineHeight: '1.08' }}>
+              Original artworks, straight from the atelier.
             </h1>
             <p style={{ fontSize: '16px', color: 'var(--ink-secondary)', lineHeight: '1.6', maxWidth: '640px' }}>
-              Every piece in the aya+ marketplace is crafted by faculty instructors, guest masters, and verified atelier fellows. Hand-signed with certificate of provenance.
+              Crafted by faculty instructors, guest masters, and verified atelier fellows. Hand-signed with an archival certificate of provenance.
             </p>
           </div>
 
           {/* Filter / Search Bar */}
           <div
             style={{
-              marginTop: '40px',
+              marginTop: '36px',
               display: 'flex',
               flexWrap: 'wrap',
               gap: '16px',
@@ -132,13 +149,13 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   style={{
-                    padding: '8px 16px',
+                    padding: '8px 18px',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '13px',
+                    fontSize: '12.5px',
                     fontWeight: '600',
                     border: '1px solid',
-                    borderColor: selectedCategory === cat ? 'var(--ink-primary)' : 'var(--border-medium)',
-                    backgroundColor: selectedCategory === cat ? 'var(--ink-primary)' : 'var(--bg-surface)',
+                    borderColor: selectedCategory === cat ? 'var(--ink-primary)' : 'var(--border-light)',
+                    backgroundColor: selectedCategory === cat ? 'var(--ink-primary)' : 'var(--bg-surface-subtle)',
                     color: selectedCategory === cat ? '#FFFFFF' : 'var(--ink-secondary)',
                     transition: 'all var(--transition-fast)'
                   }}
@@ -151,7 +168,7 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
             {/* Search & Sort Controls */}
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
               <div style={{ position: 'relative', minWidth: '220px' }}>
-                <Search size={14} color="var(--ink-muted)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+                <Search size={14} color="var(--ink-muted)" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
                 <input
                   type="text"
                   placeholder="Search artworks, artists..."
@@ -159,11 +176,13 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{
                     width: '100%',
-                    padding: '8px 12px 8px 34px',
+                    padding: '9px 14px 9px 36px',
                     borderRadius: 'var(--radius-full)',
-                    border: '1px solid var(--border-medium)',
+                    border: '1px solid var(--border-light)',
                     fontSize: '13px',
-                    backgroundColor: 'var(--bg-surface-subtle)'
+                    backgroundColor: 'var(--bg-surface-subtle)',
+                    color: 'var(--ink-primary)',
+                    outline: 'none'
                   }}
                 />
               </div>
@@ -172,14 +191,15 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 style={{
-                  padding: '8px 14px',
+                  padding: '9px 16px',
                   borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--border-medium)',
-                  fontSize: '13px',
+                  border: '1px solid var(--border-light)',
+                  fontSize: '12.5px',
                   backgroundColor: 'var(--bg-surface-subtle)',
                   color: 'var(--ink-primary)',
-                  fontWeight: '500',
-                  cursor: 'pointer'
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  outline: 'none'
                 }}
               >
                 <option value="featured">Sort: Featured</option>
@@ -200,8 +220,8 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
               Loading curated collection...
             </div>
           ) : filteredItems.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '80px 20px', backgroundColor: 'var(--bg-surface)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--ink-primary)', marginBottom: '8px' }}>
+            <div style={{ textAlign: 'center', padding: '80px 20px', backgroundColor: '#FFFFFF', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '8px' }}>
                 No matching artworks found
               </h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-secondary)', marginBottom: '20px' }}>
@@ -229,14 +249,15 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                     key={item.id}
                     onClick={() => setSelectedArtModal(item)}
                     style={{
-                      backgroundColor: 'var(--bg-surface)',
+                      backgroundColor: '#FFFFFF',
                       border: '1px solid var(--border-light)',
-                      borderRadius: 'var(--radius-sm)',
+                      borderRadius: '24px',
                       overflow: 'hidden',
                       display: 'flex',
                       flexDirection: 'column',
                       cursor: 'pointer',
-                      transition: 'transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)'
+                      boxShadow: 'var(--shadow-sm)',
+                      transition: 'all var(--transition-smooth)'
                     }}
                     className="market-art-card"
                   >
@@ -259,7 +280,7 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                           width: '100%',
                           height: '100%',
                           objectFit: 'cover',
-                          transition: 'transform 0.5s ease'
+                          transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                         }}
                         className="market-art-img"
                       />
@@ -267,17 +288,17 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                         <div
                           style={{
                             position: 'absolute',
-                            top: '12px',
-                            left: '12px',
-                            backgroundColor: 'rgba(28, 26, 23, 0.85)',
+                            top: '14px',
+                            left: '14px',
+                            backgroundColor: 'rgba(12, 12, 14, 0.85)',
                             backdropFilter: 'blur(8px)',
                             color: '#FFFFFF',
-                            fontSize: '10.5px',
+                            fontSize: '10px',
                             fontFamily: 'var(--font-mono)',
-                            padding: '4px 8px',
-                            borderRadius: 'var(--radius-xs)',
-                            fontWeight: '600',
-                            letterSpacing: '0.02em'
+                            padding: '4px 10px',
+                            borderRadius: 'var(--radius-full)',
+                            fontWeight: '700',
+                            letterSpacing: '0.04em'
                           }}
                         >
                           {item.edition}
@@ -286,10 +307,10 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                     </div>
 
                     {/* Card Body */}
-                    <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
+                    <div style={{ padding: '22px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
                       <div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '8px', marginBottom: '6px' }}>
-                          <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--ink-primary)' }}>
+                          <h3 style={{ fontSize: '16.5px', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.02em' }}>
                             {item.title}
                           </h3>
                           <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--ink-primary)', fontFamily: 'var(--font-mono)' }}>
@@ -297,7 +318,7 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                           </span>
                         </div>
 
-                        <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--ink-secondary)', marginBottom: '4px' }}>
+                        <div style={{ fontSize: '13.5px', fontWeight: '600', color: 'var(--ink-secondary)', marginBottom: '4px' }}>
                           {item.artist}
                         </div>
 
@@ -317,9 +338,9 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
-                            padding: '8px 16px',
+                            padding: '7px 16px',
                             borderRadius: 'var(--radius-full)',
-                            fontSize: '12px',
+                            fontSize: '11.5px',
                             fontFamily: 'var(--font-mono)',
                             fontWeight: '700',
                             backgroundColor: isAdded ? 'var(--accent-green)' : 'var(--ink-primary)',
@@ -329,12 +350,12 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                         >
                           {isAdded ? (
                             <>
-                              <Check size={13} />
+                              <Check size={12} />
                               <span>Added</span>
                             </>
                           ) : (
                             <>
-                              <ShoppingBag size={13} />
+                              <ShoppingBag size={12} />
                               <span>+ Add to Cart</span>
                             </>
                           )}
@@ -351,21 +372,22 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
           <div
             style={{
               marginTop: '80px',
-              padding: '36px',
-              backgroundColor: 'var(--bg-surface)',
+              padding: '40px',
+              backgroundColor: '#FFFFFF',
               border: '1px solid var(--border-light)',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: '24px',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '28px'
+              gap: '32px',
+              boxShadow: 'var(--shadow-sm)'
             }}
           >
             <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'var(--bg-surface-subtle)', color: 'var(--accent-terracotta)' }}>
+              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'rgba(233, 59, 129, 0.08)', color: 'var(--aurora-pink)' }}>
                 <Award size={22} />
               </div>
               <div>
-                <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--ink-primary)', marginBottom: '4px' }}>
+                <h4 style={{ fontSize: '14.5px', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '4px' }}>
                   Certificate of Authenticity
                 </h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.5' }}>
@@ -375,11 +397,11 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
             </div>
 
             <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'var(--bg-surface-subtle)', color: 'var(--accent-terracotta)' }}>
+              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'rgba(255, 171, 46, 0.08)', color: 'var(--aurora-amber)' }}>
                 <Truck size={22} />
               </div>
               <div>
-                <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--ink-primary)', marginBottom: '4px' }}>
+                <h4 style={{ fontSize: '14.5px', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '4px' }}>
                   Museum-Grade Packaging
                 </h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.5' }}>
@@ -389,11 +411,11 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
             </div>
 
             <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'var(--bg-surface-subtle)', color: 'var(--accent-terracotta)' }}>
+              <div style={{ padding: '10px', borderRadius: '50%', backgroundColor: 'rgba(62, 123, 250, 0.08)', color: 'var(--aurora-blue)' }}>
                 <ShieldCheck size={22} />
               </div>
               <div>
-                <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--ink-primary)', marginBottom: '4px' }}>
+                <h4 style={{ fontSize: '14.5px', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '4px' }}>
                   14-Day Studio Return
                 </h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.5' }}>
@@ -412,29 +434,30 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
             position: 'fixed',
             inset: 0,
             zIndex: 300,
-            backgroundColor: 'rgba(18, 18, 18, 0.75)',
-            backdropFilter: 'blur(8px)',
+            backgroundColor: 'rgba(12, 12, 14, 0.75)',
+            backdropFilter: 'blur(12px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '20px',
-            animation: 'modalBackdropFade 0.2s ease-out'
+            animation: 'fadeIn 0.2s ease-out'
           }}
           onClick={() => setSelectedArtModal(null)}
         >
           <div
             style={{
-              backgroundColor: 'var(--bg-surface)',
-              borderRadius: 'var(--radius-md)',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '28px',
               maxWidth: '840px',
               width: '100%',
               maxHeight: '90vh',
               overflowY: 'auto',
-              boxShadow: 'var(--shadow-modal)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
               border: '1px solid var(--border-light)',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              position: 'relative'
+              position: 'relative',
+              overflow: 'hidden'
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -445,14 +468,16 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                 top: '16px',
                 right: '16px',
                 zIndex: 10,
-                width: '32px',
-                height: '32px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(255,255,255,0.9)',
+                backgroundColor: 'rgba(255,255,255,0.92)',
+                backdropFilter: 'blur(8px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#1A1A1A'
+                color: '#121212',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
               }}
             >
               <X size={18} />
@@ -468,13 +493,13 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
             </div>
 
             {/* Info Side */}
-            <div style={{ padding: '32px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--accent-terracotta)', fontWeight: '700', textTransform: 'uppercase', marginBottom: '6px' }}>
+                <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--aurora-coral)', fontWeight: '700', textTransform: 'uppercase', marginBottom: '8px' }}>
                   {selectedArtModal.category || 'Curated Artwork'}
                 </div>
 
-                <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '8px' }}>
+                <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.03em', marginBottom: '8px' }}>
                   {selectedArtModal.title}
                 </h2>
 
@@ -486,7 +511,7 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                   {selectedArtModal.description || 'Archival fine art piece created as part of the aya+ atelier master collection.'}
                 </p>
 
-                <div style={{ backgroundColor: 'var(--bg-surface-subtle)', padding: '16px', borderRadius: 'var(--radius-sm)', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px' }}>
+                <div style={{ backgroundColor: 'var(--bg-surface-subtle)', padding: '16px', borderRadius: '14px', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--ink-muted)' }}>Medium</span>
                     <span style={{ fontWeight: '600', color: 'var(--ink-primary)' }}>{selectedArtModal.medium}</span>
@@ -519,8 +544,8 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
                     handleAdd(selectedArtModal);
                     setSelectedArtModal(null);
                   }}
-                  className="btn-primary"
-                  style={{ width: '100%', padding: '13px' }}
+                  className="btn-pill-solid"
+                  style={{ width: '100%', justifyContent: 'center', padding: '13px' }}
                 >
                   <ShoppingBag size={15} />
                   <span>Add to Cart • ${selectedArtModal.price}</span>
@@ -537,8 +562,8 @@ export const MarketplacePage = ({ onAddToCart, onNavigate, cartCount, onOpenCart
         }
         .market-art-card:hover {
           transform: translateY(-4px);
-          box-shadow: var(--shadow-hover);
-          border-color: var(--border-medium);
+          box-shadow: 0 18px 40px rgba(12, 12, 14, 0.1), 0 0 20px rgba(233, 59, 129, 0.08);
+          border-color: rgba(233, 59, 129, 0.3);
         }
         .market-art-card:hover .market-art-img {
           transform: scale(1.04);

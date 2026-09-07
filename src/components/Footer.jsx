@@ -10,62 +10,63 @@ export const Footer = ({ onNavigate }) => {
   };
 
   return (
-    <footer style={{ backgroundColor: 'var(--bg-main)', borderTop: '1px solid var(--border-light)', padding: '60px 0 32px' }}>
+    <footer style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid var(--border-light)', padding: '70px 0 36px' }}>
       <div className="container">
         {/* Top Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '36px',
-            marginBottom: '48px'
+            gap: '40px',
+            marginBottom: '56px'
           }}
         >
           {/* Brand Column */}
-          <div style={{ maxWidth: '300px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px', cursor: 'pointer' }} onClick={(e) => handleLink('overview', null, e)}>
+          <div style={{ maxWidth: '320px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', cursor: 'pointer' }} onClick={(e) => handleLink('overview', null, e)}>
               <Logo size="lg" />
             </div>
 
-            <p style={{ fontSize: '12.5px', color: 'var(--ink-secondary)', lineHeight: '1.55' }}>
-              A dedicated academy for design disciplines, physical craft, and tactile art. London / SF / Zurich.
+            <p style={{ fontSize: '13px', color: 'var(--ink-secondary)', lineHeight: '1.6' }}>
+              A dedicated academy and marketplace for design disciplines, physical craft, and tactile art. London / San Francisco / Zurich.
             </p>
           </div>
 
           {/* Academy Column */}
           <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
               ACADEMY
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--ink-secondary)' }}>
               <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">All Masterclasses</a></li>
-              <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Free Courses</a></li>
-              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Physical Kits</a></li>
-              <li><a href="#overview" onClick={(e) => handleLink('overview', 'mentors', e)} className="footer-link">Mentorship</a></li>
+              <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Open Curriculum</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Physical Studio Kits</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', 'mentors', e)} className="footer-link">1:1 Mentorship</a></li>
             </ul>
           </div>
 
           {/* Marketplace Column */}
           <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
               MARKETPLACE
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--ink-secondary)' }}>
               <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Original Artworks</a></li>
               <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Prints & Editions</a></li>
               <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Artist Submissions</a></li>
+              <li><a href="#marketplace" onClick={(e) => handleLink('marketplace', null, e)} className="footer-link">Provenance Guarantee</a></li>
             </ul>
           </div>
 
-          {/* Account Column */}
+          {/* Community Column */}
           <div>
-            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
-              ACCOUNT
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+              CONNECT
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px', color: 'var(--ink-secondary)' }}>
-              <li><a href="#overview" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Sign In</a></li>
-              <li><a href="#overview" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Sign Up</a></li>
-              <li><a href="#overview" onClick={(e) => handleLink('overview', null, e)} className="footer-link">Student Portal</a></li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--ink-secondary)' }}>
+              <li><a href="#articles" onClick={(e) => handleLink('overview', 'articles', e)} className="footer-link">Journal & Essays</a></li>
+              <li><a href="#courses" onClick={(e) => handleLink('overview', 'courses', e)} className="footer-link">Student Portal</a></li>
+              <li><a href="#overview" onClick={(e) => handleLink('overview', null, e)} className="footer-link">Live Studio Hours</a></li>
             </ul>
           </div>
         </div>
@@ -77,10 +78,10 @@ export const Footer = ({ onNavigate }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '14px',
-            paddingTop: '24px',
+            gap: '16px',
+            paddingTop: '28px',
             borderTop: '1px solid var(--border-light)',
-            fontSize: '11.5px',
+            fontSize: '12px',
             color: 'var(--ink-muted)',
             fontFamily: 'var(--font-mono)'
           }}
@@ -88,9 +89,9 @@ export const Footer = ({ onNavigate }) => {
           <div>
             © 2026 aya+, Inc. All rights reserved. Built for makers.
           </div>
-          <div style={{ display: 'flex', gap: '18px' }}>
+          <div style={{ display: 'flex', gap: '20px' }}>
             <a href="#" className="footer-link">Privacy Policy</a>
-            <a href="#" className="footer-link">Terms</a>
+            <a href="#" className="footer-link">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -98,7 +99,6 @@ export const Footer = ({ onNavigate }) => {
       <style>{`
         .footer-link:hover {
           color: var(--ink-primary) !important;
-          text-decoration: underline;
         }
       `}</style>
     </footer>

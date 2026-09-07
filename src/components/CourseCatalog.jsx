@@ -15,34 +15,34 @@ export const CourseCatalog = ({ onSelectCourse, onEnroll }) => {
   }, []);
 
   return (
-    <section id="courses" style={{ padding: '60px 0 80px', backgroundColor: 'var(--bg-main)' }}>
+    <section id="courses" style={{ padding: '80px 0 90px', backgroundColor: 'var(--bg-subtle)', position: 'relative' }}>
       <div className="container">
-        {/* Header matching image */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
+        {/* Section Header */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '20px', marginBottom: '40px' }}>
           <div>
-            <div className="section-tag">COURSES</div>
-            <h2 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.02em' }}>
-              Free courses from people who make this for a living
+            <div style={{ marginBottom: '8px' }}>
+              <span className="status-pill">
+                <span className="status-dot" style={{ backgroundColor: 'var(--aurora-coral)' }} />
+                <span>OPEN CURRICULUM</span>
+              </span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.03em' }}>
+              Masterclasses taught by industry artisans
             </h2>
           </div>
 
           <div>
-            <a
-              href="#courses"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                fontSize: '12px',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--ink-primary)',
-                fontWeight: '700'
+            <button
+              onClick={() => {
+                const el = document.getElementById('courses');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="explore-link"
+              className="btn-pill-cta"
+              style={{ backgroundColor: '#FFFFFF' }}
             >
-              <span>Explore all courses</span>
-              <ArrowRight size={13} />
-            </a>
+              <span>EXPLORE ALL COURSES</span>
+              <ArrowRight size={13} strokeWidth={2.5} />
+            </button>
           </div>
         </div>
 
@@ -50,8 +50,8 @@ export const CourseCatalog = ({ onSelectCourse, onEnroll }) => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '28px'
           }}
         >
           {courses.map(course => (
@@ -64,12 +64,6 @@ export const CourseCatalog = ({ onSelectCourse, onEnroll }) => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        .explore-link:hover {
-          color: var(--accent-terracotta) !important;
-        }
-      `}</style>
     </section>
   );
 };

@@ -12,13 +12,18 @@ export const ArticlesSection = ({ onSelectArticle }) => {
   }, []);
 
   return (
-    <section id="journal" style={{ padding: '70px 0 80px', backgroundColor: 'var(--bg-main)', borderTop: '1px solid var(--border-light)' }}>
+    <section id="articles" style={{ padding: '80px 0 90px', backgroundColor: '#FFFFFF', borderTop: '1px solid var(--border-light)' }}>
       <div className="container">
         {/* Header */}
-        <div style={{ marginBottom: '32px' }}>
-          <div className="section-tag">FREE ACCESS • OPEN SOURCE</div>
-          <h2 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.02em' }}>
-            Articles, references and copyright-free assets
+        <div style={{ marginBottom: '40px' }}>
+          <div style={{ marginBottom: '8px' }}>
+            <span className="status-pill">
+              <span className="status-dot" style={{ backgroundColor: 'var(--aurora-pink)' }} />
+              <span>OPEN ARCHIVE & JOURNAL</span>
+            </span>
+          </div>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: '800', color: 'var(--ink-primary)', letterSpacing: '-0.03em' }}>
+            Essays, references, and open-source assets
           </h2>
         </div>
 
@@ -26,43 +31,58 @@ export const ArticlesSection = ({ onSelectArticle }) => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '24px'
           }}
         >
           {articles.map((item, idx) => (
             <div
               key={idx}
               style={{
-                backgroundColor: 'var(--bg-surface)',
+                backgroundColor: '#FFFFFF',
                 border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-sm)',
-                padding: '24px 22px',
+                borderRadius: '20px',
+                padding: '28px 24px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '150px',
+                minHeight: '170px',
                 cursor: 'pointer',
-                transition: 'transform var(--transition-fast), box-shadow var(--transition-fast)'
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'all var(--transition-smooth)'
               }}
               className="article-card"
               onClick={() => onSelectArticle && onSelectArticle(item)}
             >
               <div>
-                <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--accent-terracotta)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '10px',
+                    fontFamily: 'var(--font-mono)',
+                    fontWeight: '700',
+                    color: 'var(--aurora-coral)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    backgroundColor: 'rgba(255, 90, 54, 0.08)',
+                    padding: '3px 8px',
+                    borderRadius: 'var(--radius-full)',
+                    marginBottom: '12px'
+                  }}
+                >
                   {item.tag}
-                </div>
+                </span>
 
-                <h3 style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--ink-primary)', lineHeight: '1.4' }}>
+                <h3 style={{ fontSize: '15.5px', fontWeight: '800', color: 'var(--ink-primary)', lineHeight: '1.4', letterSpacing: '-0.02em' }}>
                   {item.title}
                 </h3>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', paddingTop: '12px', borderTop: '1px solid var(--border-light)' }}>
-                <span style={{ fontSize: '11.5px', color: 'var(--ink-muted)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', paddingTop: '14px', borderTop: '1px solid var(--border-light)' }}>
+                <span style={{ fontSize: '12px', color: 'var(--ink-muted)', fontFamily: 'var(--font-mono)' }}>
                   {item.readTime}
                 </span>
-                <ArrowUpRight size={14} color="var(--ink-muted)" />
+                <ArrowUpRight size={15} color="var(--ink-secondary)" />
               </div>
             </div>
           ))}
@@ -71,9 +91,9 @@ export const ArticlesSection = ({ onSelectArticle }) => {
 
       <style>{`
         .article-card:hover {
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-hover);
-          border-color: var(--border-medium);
+          transform: translateY(-4px);
+          box-shadow: 0 16px 36px rgba(12, 12, 14, 0.08), 0 0 20px rgba(233, 59, 129, 0.08);
+          border-color: rgba(233, 59, 129, 0.3);
         }
       `}</style>
     </section>
